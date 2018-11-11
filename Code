@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,8 +37,23 @@ namespace _3
             Square B = new Square(12);
             Circle C = new Circle(4);
 
+            Console.WriteLine("-------------------------------------");
+            Console.WriteLine("[Создание коллекции класса ArrayList]");
+            Console.WriteLine("-------------------------------------");
+            ArrayList al = new ArrayList();
+            al.Add(A);
+            al.Add(B);
+            al.Add(C);
+            Console.WriteLine("Перед сортировкой:");
+            foreach (var x in al) Console.WriteLine(x);
+            //сортировка
+            al.Sort();
+            Console.WriteLine("\nПосле сортировки:");
+            foreach (var x in al) Console.WriteLine(x);
 
-
+            Console.WriteLine("----------------------------------------");
+            Console.WriteLine("[Создание коллекции класса List<Figure>]");
+            Console.WriteLine("----------------------------------------");
             List<GeometryFigure> fl = new List<GeometryFigure>();
             fl.Add(A);
             fl.Add(B);
@@ -50,7 +66,9 @@ namespace _3
             foreach (var x in fl) Console.WriteLine(x);
 
 
-            Console.WriteLine("\nМатрица");
+            Console.WriteLine("------------------------");
+            Console.WriteLine("[Создание класса Matrix]");
+            Console.WriteLine("------------------------");
             Matrix<GeometryFigure> matrix = new Matrix<GeometryFigure>(3, 3, new FigureMatrixCheckEmpty());
             matrix[0, 0] = A;
             matrix[1, 1] = B;
@@ -58,18 +76,10 @@ namespace _3
             Console.WriteLine(matrix.ToString());
 
 
-            SimpleList<GeometryFigure> list = new SimpleList<GeometryFigure>();
-            list.Add(A);
-            list.Add(B);
-            list.Add(C);
-            Console.WriteLine("\nПеред сортировкой:");
-            foreach (var x in list) Console.WriteLine(x);
-            list.Sort();
-            Console.WriteLine("\nПосле сортировки:");
-            foreach (var x in list) Console.WriteLine(x);
-
-            Console.WriteLine("\n");
-            SimpleStack<GeometryFigure> stack = new SimpleStack<GeometryFigure>(); 
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine("[Создание класса «SimpleStack»]");
+            Console.WriteLine("-------------------------------");
+            SimpleStack<GeometryFigure> stack = new SimpleStack<GeometryFigure>();
             stack.Push(A);
             stack.Push(B);
             stack.Push(C);
